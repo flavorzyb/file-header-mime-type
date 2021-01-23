@@ -1,3 +1,3 @@
 package com.zhuyanbin.mimetype
 
-data class MimeType(val extension: String, val mimeType: String)
+data class MimeType(var extension: String = "", var mimeType: String = "")

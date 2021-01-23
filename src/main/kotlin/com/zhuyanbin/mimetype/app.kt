@@ -1,6 +1,6 @@
 package com.zhuyanbin.mimetype
 
 fun main() {
-//    ExcelReader.getMimeTypeList()
+    val mimeTypeList = ExcelReader.getMimeTypeList()
     val fileHeaderList = ExcelReader.getFileHeaderList()
 }

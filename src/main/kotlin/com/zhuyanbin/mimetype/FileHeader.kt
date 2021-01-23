@@ -1,3 +1,3 @@
 package com.zhuyanbin.mimetype
 
-data class FileHeader(val name: String, val hex: String, val description:String)
+data class FileHeader(var name: String = "", var hex: String = "", var description:String = "")

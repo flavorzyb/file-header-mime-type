@@ -15,7 +15,7 @@ object Formatter {
                             true -> str
                             else -> "0${str}"
                         }
-                        result.append("0x${hexStr}, ")
+                        result.append("0x${hexStr.toUpperCase()}, ")
                     } catch (e: Exception) {
                         result.append("0x--, ")
                     }

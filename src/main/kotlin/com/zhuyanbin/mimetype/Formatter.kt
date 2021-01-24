@@ -10,12 +10,17 @@ object Formatter {
                 val result = StringBuilder()
                 strArray.filter { it.trim().isNotEmpty() }.forEach {
                     try {
-                        val str = it.trim().toInt(16).toString(16)
+                        val value = it.trim().toInt(16)
+                        val str = value.toString(16)
                         val hexStr = when (str.length > 1) {
                             true -> str
                             else -> "0${str}"
                         }
-                        result.append("0x${hexStr.toUpperCase()}, ")
+                        val prefix = when (value > 128) {
+                            true -> "(byte)"
+                            else -> ""
+                        }
+                        result.append("${prefix}0x${hexStr.toUpperCase()}, ")
                     } catch (e: Exception) {
                         result.append("0x--, ")
                     }

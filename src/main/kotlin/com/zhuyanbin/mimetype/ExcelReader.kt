@@ -11,7 +11,7 @@ object ExcelReader {
         mimeTypeList.filter { it.extension.trim().isNotEmpty() }
             .stream()
             .forEach {
-            result.add(MimeType(it.extension.trim(), it.extension.trim()))
+            result.add(MimeType(it.extension.trim(), it.mimeType.trim()))
         }
 
         return result
@@ -37,7 +37,6 @@ object ExcelReader {
         val result = ArrayList<FileHeader>()
 
         fileHeaderList.filter { it.name.trim().isNotEmpty() }
-            .stream()
             .forEach {
                 val nameList = when {
                     it.name.indexOf(";") != -1 -> it.name.split(";")

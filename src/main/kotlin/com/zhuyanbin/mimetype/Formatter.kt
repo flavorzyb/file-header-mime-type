@@ -45,7 +45,7 @@ object Formatter {
         fileHeaderList.sortedBy { it.name }.forEach {
             val extName = it.name
             val mimeType = mimeTypeMap[extName.toLowerCase()]
-            println("TYPE_${extName.toUpperCase()}(\"${extName.toLowerCase()}\", new byte[] { ${it.hex} }, \"${mimeType ?: ""}\"),")
+            println("TYPE_${extName.toUpperCase()}(\"${extName.toLowerCase()}\", new byte[] { ${it.hex} }, \"${mimeType ?: "application/octet-stream"}\"),")
         }
     }
 }

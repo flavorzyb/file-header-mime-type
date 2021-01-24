@@ -9,8 +9,16 @@ object Formatter {
                 val strArray = data.split(" ")
                 val result = StringBuilder()
                 strArray.filter { it.trim().isNotEmpty() }.forEach {
-                    val str = it.trim()
-                    result.append("0x$str, ")
+                    try {
+                        val str = it.trim().toInt(16).toString(16)
+                        val hexStr = when (str.length > 1) {
+                            true -> str
+                            else -> "0${str}"
+                        }
+                        result.append("0x${hexStr}, ")
+                    } catch (e: Exception) {
+                        result.append("0x--, ")
+                    }
                 }
                 if (result.length > 2) {
                     result.substring(0, result.length - 2)

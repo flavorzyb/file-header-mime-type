@@ -55,7 +55,7 @@ object Formatter {
     }
     fun printFileHeaderAndMimeType(fileHeaderList: List<FileHeader>, mimeTypeList: List<MimeType>) {
         val mimeTypeMap = toMimeTypeMap(mimeTypeList)
-        fileHeaderList.sortedBy { it.name }.forEach {
+        fileHeaderList.stream().sorted { o1, o2 ->  o1.name.compareTo(o2.name) }.forEach {
             val extName = it.name
             val mimeType = mimeTypeMap[extName.toLowerCase()]
             println("TYPE_${extName.toUpperCase()}(\"${extName.toLowerCase()}\", new byte[] { ${it.hex} }, \"${mimeType ?: "application/octet-stream"}\"),")
